@@ -11,3 +11,9 @@ createRoot(root).render(
     <App />
   </StrictMode>,
 );
+
+if ('serviceWorker' in navigator && window.location.protocol.startsWith('http')) {
+  window.addEventListener('load', () => {
+    void navigator.serviceWorker.register('./sw.js');
+  });
+}

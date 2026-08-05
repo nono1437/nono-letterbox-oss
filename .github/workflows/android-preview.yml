@@ -1,0 +1,70 @@
+name: Build Android preview
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: android-preview
+  cancel-in-progress: true
+
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: package.json
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Build web application
+        run: npm run build
+      - name: Create Android project
+        run: npx cap add android
+      - name: Restore stable public preview signature
+        shell: bash
+        run: |
+          mkdir -p "$HOME/.android"
+          echo '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' | base64 --decode > "$HOME/.android/debug.keystore"
+          chmod 600 "$HOME/.android/debug.keystore"
+      - name: Build debug APK
+        working-directory: android
+        run: ./gradlew assembleDebug
+      - name: Prepare download
+        run: cp android/app/build/outputs/apk/debug/app-debug.apk nono-letterbox-oss-preview.apk
+      - name: Upload workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: nono-letterbox-oss-preview
+          path: nono-letterbox-oss-preview.apk
+          retention-days: 30
+      - name: Publish rolling preview release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          git tag -f preview "$GITHUB_SHA"
+          git push origin preview --force
+          if gh release view preview >/dev/null 2>&1; then
+            gh release upload preview nono-letterbox-oss-preview.apk --clobber
+            gh release edit preview --title 'Android Preview' --notes '公开演示 APK：仅包含本地 demo、分类与回信功能，不包含 Gmail 或私人配置。'
+          else
+            gh release create preview nono-letterbox-oss-preview.apk --prerelease --title 'Android Preview' --notes '公开演示 APK：仅包含本地 demo、分类与回信功能，不包含 Gmail 或私人配置。'
+          fi

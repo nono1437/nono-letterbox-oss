@@ -1,14 +1,18 @@
 {
+  "id": "./",
   "name": "Nono Letterbox OSS",
   "short_name": "Letterbox",
-  "description": "A local-first letter archive and reply journal.",
-  "start_url": "/",
+  "description": "一间本地优先、可以分类来信与回信的公开信笺小屋。",
+  "lang": "zh-CN",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
-  "background_color": "#f6f0e7",
-  "theme_color": "#f1e9dc",
+  "orientation": "portrait-primary",
+  "background_color": "#efe8df",
+  "theme_color": "#8f6e88",
   "icons": [
     {
-      "src": "/app-icon.svg",
+      "src": "./app-icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"

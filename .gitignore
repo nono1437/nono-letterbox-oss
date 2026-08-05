@@ -32,6 +32,9 @@ android/
 *.cer
 *.crt
 
+# Downloaded official build assets
+public/codex-spritesheet-v4.webp
+
 # Local/private exports
 backups/
 private/

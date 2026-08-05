@@ -1,0 +1,17 @@
+{
+  "name": "Nono Letterbox OSS",
+  "short_name": "Letterbox",
+  "description": "A local-first letter archive and reply journal.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f6f0e7",
+  "theme_color": "#f1e9dc",
+  "icons": [
+    {
+      "src": "/app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

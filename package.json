@@ -1,10 +1,13 @@
 {
   "name": "nono-letterbox-oss",
   "private": true,
-  "version": "0.2.0",
+  "version": "0.3.0",
   "type": "module",
   "scripts": {
+    "fetch:codex-pet": "node scripts/fetch-codex-pet.mjs",
+    "predev": "npm run fetch:codex-pet",
     "dev": "vite --host 0.0.0.0",
+    "prebuild": "npm run fetch:codex-pet",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview --host 0.0.0.0",
     "android:add": "cap add android",

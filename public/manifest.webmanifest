@@ -1,15 +1,15 @@
 {
   "id": "./",
-  "name": "Nono Letterbox OSS",
-  "short_name": "Letterbox",
-  "description": "一间本地优先、可以分类来信与回信的公开信笺小屋。",
+  "name": "nono.love · 信笺小屋",
+  "short_name": "nono.love",
+  "description": "一间本地优先、安静保存来信、分类与回信的公开信笺小屋。",
   "lang": "zh-CN",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait-primary",
-  "background_color": "#efe8df",
-  "theme_color": "#8f6e88",
+  "background_color": "#17151f",
+  "theme_color": "#17151f",
   "icons": [
     {
       "src": "./app-icon.svg",
